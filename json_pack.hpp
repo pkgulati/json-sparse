@@ -1,6 +1,6 @@
 //
-//  json_pack.hpp
-//  Created by pkgulati@gmail.com on 2018-10-13.
+// By pkgulati@gmail.com
+//
 
 #ifndef json_pack_hpp
 #define json_pack_hpp
@@ -11,8 +11,8 @@ enum JsonValueType
 {
     JSON_NO_VALUE,
     JSON_STRING,
-    JSON_INT,
     JSON_DECIMAL,
+    JSON_INTEGER,
     JSON_BOOLEAN,
     JSON_ARRAY,
     JSON_OBJECT,
@@ -53,17 +53,23 @@ public:
     int KeyLength();
     char* Value();
     int ValueLength();
+    double Number();
+    long Quantity();
+    
+    void PrintValue();
     
     JsonValueType ValueType();
     JsonTokenType TokenType();
     
 private:
     double  _number;
+    long    _qty;
     int     _array;
     char    * _key;
     int     _key_length;
     char    * _str;
     int     _strlen;
+    bool _flag;
     JsonTokenType   _tokenType;
     JsonValueType   _value_type;
     char*   _start;
@@ -76,7 +82,5 @@ private:
     void _ReadNumberToken();
     void _ReadStringToken();
 };
-
-
 
 #endif /* json_pack_hpp */
