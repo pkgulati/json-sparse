@@ -1,6 +1,6 @@
 //
 // By pkgulati@gmail.com
-//
+// https://github.com/pkgulati/json-sparse
 
 #ifndef json_pack_hpp
 #define json_pack_hpp
