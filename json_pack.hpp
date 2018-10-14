@@ -61,7 +61,8 @@ public:
     
     JsonValueType ValueType();
     JsonTokenType TokenType();
-    
+    static int toFieldId(char* str);
+
 private:
     double  _number;
     long    _qty;

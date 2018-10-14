@@ -479,3 +479,23 @@ JsonPack::ReadObject() {
     }
     return 1;
 }
+
+
+int 
+JsonPack::toFieldId(char* str) {
+    int hash = 0, i=0, chr=0;
+    if (strlen(str) == 0) return hash;
+    char *ptr = str;
+    while(*ptr) {
+        int a = *ptr;
+        hash = (hash << 5) - hash + a;
+        hash |= 0; // Convert to 32bit integer
+        ptr++;
+    }
+    return hash & 0x7FFFFFFF;
+};
+
+enum fenum {
+    FLD_TEST1 = 110251487,
+    FLD_TEST2 = 110251488
+};
